@@ -1,0 +1,28 @@
+# Rust 格式化配置
+# 运行: cargo fmt
+
+# 最大行宽
+max_width = 120
+
+# 使用空格缩进
+hard_tabs = false
+tab_spaces = 4
+
+# 导入分组
+imports_granularity = "Module"
+group_imports = "StdExternalCrate"
+
+# 函数参数换行
+fn_params_layout = "Tall"
+
+# 链式调用换行
+chain_width = 60
+
+# 单行 if/else
+single_line_if_else_max_width = 50
+
+# 使用字段初始化简写
+use_field_init_shorthand = true
+
+# 使用 try 简写 (?)
+use_try_shorthand = true
