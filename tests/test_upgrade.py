@@ -1,15 +1,16 @@
 import json
 import pathlib
-import pxsol
+from config import setup_pxsol, PROGRAM_ID, WALLET_PATH
 
-pxsol.config.current.log = 1
+pxsol = setup_pxsol()
+pxsol.config.current['log'] = 1
 
 # Load wallet from JSON file
-with open("/home/ssszyy/.config/solana/id.json") as f:
+with open(WALLET_PATH) as f:
     prikey = pxsol.core.PriKey(bytearray(json.load(f)[:32]))
 user = pxsol.wallet.Wallet(prikey)
 
-program_pubkey = pxsol.core.PubKey.base58_decode('84Jd3TkNgmw3ibXArJW6DLj3qVATqp7pmeTkpBsVdT8U')
+program_pubkey = pxsol.core.PubKey.base58_decode(PROGRAM_ID)
 program_data = bytearray(pathlib.Path('target/deploy/pxsol_ss.so').read_bytes())
 
 print(f"User: {user.pubkey.base58()}")

@@ -1,5 +1,9 @@
 /target
+__pycache__/
+*.pyc
+*.bak
 .claude/
 .bmad-core/
 .spec-workflow/
 .serena/
+.specify/

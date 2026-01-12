@@ -136,6 +136,7 @@ pxsol-ss/
 ├── src/
 │   └── lib.rs              # 链上程序入口
 ├── tests/
+│   ├── config.py           # 网络配置（支持 localhost/devnet 切换）
 │   ├── test_write.py       # 写入测试
 │   ├── test_read_pda.py    # 读取测试
 │   ├── test_update_pda.py  # 更新测试
@@ -154,10 +155,13 @@ solana program deploy target/deploy/pxsol_ss.so
 
 # 运行测试 (需要 pxsol-py311 环境)
 conda activate pxsol-py311
+
+# 本地网络测试（默认）
 python tests/test_write.py
-python tests/test_read_pda.py
-python tests/test_update_pda.py
-python tests/test_upgrade.py
+
+# Devnet 测试
+SOLANA_NETWORK=devnet python tests/test_write.py
+SOLANA_NETWORK=devnet python tests/test_read_pda.py
 ```
 
 ## 部署信息
@@ -165,3 +169,4 @@ python tests/test_upgrade.py
 | 环境 | Program ID |
 |------|------------|
 | Localhost | `84Jd3TkNgmw3ibXArJW6DLj3qVATqp7pmeTkpBsVdT8U` |
+| Devnet | `84Jd3TkNgmw3ibXArJW6DLj3qVATqp7pmeTkpBsVdT8U` |
